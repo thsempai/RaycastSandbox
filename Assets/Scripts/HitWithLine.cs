@@ -16,10 +16,12 @@ public class HitWithLine : MonoBehaviour
 
         Vector3 lineBegin = transform.position;
         Vector3 lineEnd = transform.position + transform.forward * 10;
+        Color color = Color.blue;
         RaycastHit hit;
 
         if (Physics.Raycast(transform.position, transform.forward, out hit)){
             lineEnd = hit.point;
+            color = Color.red;
         }
 
         LineRenderer line = GetComponent<LineRenderer>();
@@ -29,6 +31,6 @@ public class HitWithLine : MonoBehaviour
         line.SetPositions(positions);*/
         line.SetPosition(0, lineBegin);
         line.SetPosition(1, lineEnd);
-
+        line.endColor = color;
     }
 }
