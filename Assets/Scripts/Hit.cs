@@ -13,9 +13,13 @@ public class Hit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(transform.position, transform.forward * 100, Color.yellow);
+
+        Color color = Color.green;
+
         if (Physics.Raycast(transform.position, transform.forward)){
             Debug.Log("There something...");
+            color = Color.red;
         }
+        Debug.DrawRay(transform.position, transform.forward * 100, color);
     }
 }
